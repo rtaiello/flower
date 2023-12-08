@@ -183,8 +183,8 @@ class FedAvg(Strategy):
         clients = client_manager.sample(
             num_clients=sample_size, min_num_clients=min_num_clients
         )
-
         # Return client/config pairs
+        
         return [(client, fit_ins) for client in clients]
 
     def configure_evaluate(
@@ -201,7 +201,6 @@ class FedAvg(Strategy):
             # Custom evaluation config function provided
             config = self.on_evaluate_config_fn(server_round)
         evaluate_ins = EvaluateIns(parameters, config)
-
         # Sample clients
         sample_size, min_num_clients = self.num_evaluation_clients(
             client_manager.num_available()
@@ -209,7 +208,6 @@ class FedAvg(Strategy):
         clients = client_manager.sample(
             num_clients=sample_size, min_num_clients=min_num_clients
         )
-
         # Return client/config pairs
         return [(client, evaluate_ins) for client in clients]
 

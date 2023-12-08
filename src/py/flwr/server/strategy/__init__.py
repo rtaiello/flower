@@ -34,6 +34,7 @@ from .fedyogi import FedYogi as FedYogi
 from .krum import Krum as Krum
 from .qfedavg import QFedAvg as QFedAvg
 from .strategy import Strategy as Strategy
+from .flamingo_fedavg import FlamingoFedAvg as FlamingoFedAvg
 
 __all__ = [
     "FaultTolerantFedAvg",
@@ -55,4 +56,5 @@ __all__ = [
     "DPFedAvgAdaptive",
     "DPFedAvgFixed",
     "Strategy",
+    "FlamingoFedAvg",
 ]

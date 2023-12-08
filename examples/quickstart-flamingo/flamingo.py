@@ -2,14 +2,11 @@
 # SPDX-License-Identifier: Apache-2.0
 
 
-from typing import List, Optional, Dict
+from math import ceil
+from typing import Dict, List, Optional
 
 import numpy as np
-
-from math import ceil
-
 from Crypto.Cipher import ChaCha20
-
 
 
 class PRF(object):
@@ -24,11 +21,11 @@ class PRF(object):
         self.num_bytes = ceil(elementsize / 8)
 
     def eval_key(self, key: bytes, round: int):
-        round_number_bytes = round.to_bytes(16, 'big')
+        round_number_bytes = round.to_bytes(16, "big")
         c = ChaCha20.new(key=key, nonce=PRF._nonce).encrypt(round_number_bytes)
         # the output is a 16 bytes string, pad it to 32 bytes
         # TODO fix it, I don't know if it is correct to pad with zeros
-        c = c + b'\x00' * 16
+        c = c + b"\x00" * 16
         return c
 
     def eval_vector(self, seed):
@@ -41,12 +38,16 @@ class Flamingo:
     """
     TODO: Add docstring
     """
+
     prf: Optional[PRF] = None
+
     def __init__(self) -> None:
         super().__init__()
-        self.vector_dtype = 'uint32'
+        self.vector_dtype = "uint32"
 
-    def setup_pairwise_secrets(self, my_node_id:int, nodes_ids: List[str], num_params: int) -> None:
+    def setup_pairwise_secrets(
+        self, my_node_id: int, nodes_ids: List[str], num_params: int
+    ) -> None:
         """
         TODO: Add docstring
         """
@@ -57,21 +58,25 @@ class Flamingo:
         # this is just an hardcoded example
         for node_id in nodes_ids:
             if node_id != my_node_id:
-                #create 32 bytes secret of zeros
-                self.pairwise_secrets[node_id] = b'\x02' * 32
+                # create 32 bytes secret of zeros
+                with open(f"dh_certificates/shared_secret_{node_id}_{my_node_id}.bin", "rb") as f:
+                    self.pairwise_secrets[node_id] = f.read()[:32]
+                    # print(len(self.pairwise_secrets[node_id]))
+                    # a = b"\x02" * 32
+                    # print(len(a))
+                    # 3/0
 
     def protect(
-            self,
-            current_round: int,
-            params: List[int], 
-            node_ids,
-            )-> np.array:
+        self,
+        current_round: int,
+        params: List[int],
+        node_ids,
+    ) -> np.array:
         params = np.array(params, dtype=self.vector_dtype)
         vec = np.zeros(len(params), dtype=self.vector_dtype)
         for node_id in node_ids:
             if node_id == self.my_node_id:
                 continue
-            print("node_id:", node_id)
             secret = self.pairwise_secrets[node_id]
             # generate seed for pairwise encryption
             pairwise_seed = Flamingo.prf.eval_key(key=secret, round=current_round)
@@ -85,14 +90,3 @@ class Flamingo:
 
         encrypted_params = vec + params
         return encrypted_params.tolist()
-
-    def aggregate(
-            self,
-            params: Dict[str, np.ndarray],
-    ) -> List[int]:
-        params = np.array(params, dtype=self.vector_dtype)
-        sum_params = np.sum(params, axis=0)
-        sum_params = sum_params.astype(np.int32)
-        sum_params = sum_params.tolist()
-
-        return sum_params
