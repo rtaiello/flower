@@ -3,15 +3,15 @@
 from collections import OrderedDict
 from typing import Callable, Dict, List, Tuple
 
-import flwr as fl
 import torch
 import torch.nn
-from flwr.common.typing import NDArrays, Scalar
+from fedmeta.models import test, test_meta, train, train_meta
 from hydra.utils import instantiate
 from omegaconf import DictConfig
 from torch.utils.data import DataLoader
 
-from fedmeta.models import test, test_meta, train, train_meta
+import flwr as fl
+from flwr.common.typing import NDArrays, Scalar
 
 
 # pylint: disable=too-many-instance-attributes

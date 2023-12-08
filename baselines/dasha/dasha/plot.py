@@ -7,9 +7,8 @@ import pickle
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.ndimage
-from omegaconf import OmegaConf
-
 from dasha.strategy import _CompressionAggregator
+from omegaconf import OmegaConf
 
 
 def moving_average(x, window):

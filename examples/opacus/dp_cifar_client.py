@@ -2,12 +2,11 @@ import math
 
 import torch
 import torchvision.transforms as transforms
+from dp_cifar_main import PARAMS, DPCifarClient, Net
 from torch.utils.data import DataLoader
 from torchvision.datasets import CIFAR10
 
 import flwr as fl
-
-from dp_cifar_main import Net, DPCifarClient, PARAMS
 
 # Setup for running a single client manually (alternatively use simulation code in 'dp_cifar_simulation').
 

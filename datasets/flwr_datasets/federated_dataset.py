@@ -17,8 +17,6 @@
 
 from typing import Dict, Optional, Tuple, Union
 
-import datasets
-from datasets import Dataset, DatasetDict
 from flwr_datasets.partitioner import Partitioner
 from flwr_datasets.resplitter import Resplitter
 from flwr_datasets.utils import (
@@ -26,6 +24,9 @@ from flwr_datasets.utils import (
     _instantiate_partitioners,
     _instantiate_resplitter_if_needed,
 )
+
+import datasets
+from datasets import Dataset, DatasetDict
 
 
 class FederatedDataset:

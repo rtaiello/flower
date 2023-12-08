@@ -5,12 +5,13 @@ import random
 from types import SimpleNamespace
 from typing import Any, Callable, Dict, List, Optional, Union
 
-import flwr as fl
 import hydra
 import numpy as np
 import torch
-from flwr.client import Client, NumPyClient
 from omegaconf import OmegaConf, open_dict
+
+import flwr as fl
+from flwr.client import Client, NumPyClient
 
 from .client import FJORD_CONFIG_TYPE, FjORDClient, get_agg_config
 from .dataset import load_data

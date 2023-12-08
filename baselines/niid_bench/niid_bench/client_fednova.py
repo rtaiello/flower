@@ -2,14 +2,14 @@
 
 from typing import Callable, Dict, List, OrderedDict
 
-import flwr as fl
 import torch
-from flwr.common import Scalar
 from hydra.utils import instantiate
+from niid_bench.models import test, train_fednova
 from omegaconf import DictConfig
 from torch.utils.data import DataLoader
 
-from niid_bench.models import test, train_fednova
+import flwr as fl
+from flwr.common import Scalar
 
 
 # pylint: disable=too-many-instance-attributes

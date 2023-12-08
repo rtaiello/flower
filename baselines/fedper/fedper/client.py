@@ -6,17 +6,17 @@ from typing import Any, Callable, Dict, List, Tuple, Type, Union
 
 import numpy as np
 import torch
-from flwr.client import NumPyClient
-from flwr.common import NDArrays, Scalar
+from fedper.constants import MEAN, STD
+from fedper.dataset_preparation import call_dataset
+from fedper.implemented_models.mobile_model import MobileNetModelManager
+from fedper.implemented_models.resnet_model import ResNetModelManager
 from omegaconf import DictConfig
 from torch.utils.data import DataLoader, Subset, random_split
 from torchvision import transforms
 from torchvision.datasets import ImageFolder
 
-from fedper.constants import MEAN, STD
-from fedper.dataset_preparation import call_dataset
-from fedper.implemented_models.mobile_model import MobileNetModelManager
-from fedper.implemented_models.resnet_model import ResNetModelManager
+from flwr.client import NumPyClient
+from flwr.common import NDArrays, Scalar
 
 PROJECT_DIR = Path(__file__).parent.parent.absolute()
 

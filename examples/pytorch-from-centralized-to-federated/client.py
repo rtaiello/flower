@@ -7,12 +7,12 @@ import timeit
 from collections import OrderedDict
 from typing import Dict, List, Tuple
 
-import flwr as fl
+import cifar
 import numpy as np
 import torch
 import torchvision
 
-import cifar
+import flwr as fl
 
 USE_FEDBN: bool = True
 

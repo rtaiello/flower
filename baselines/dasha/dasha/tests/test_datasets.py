@@ -4,10 +4,9 @@ import os
 import unittest
 
 import numpy as np
-from omegaconf import OmegaConf
-
 from dasha.dataset import LIBSVMDatasetName, load_dataset, random_split
 from dasha.dataset_preparation import DatasetType
+from omegaconf import OmegaConf
 
 TESTDATA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "datasets")
 cfg = OmegaConf.create(

@@ -4,12 +4,13 @@ from copy import deepcopy
 from types import SimpleNamespace
 from typing import Any, Dict, List, Tuple, Union
 
-import flwr as fl
 import numpy as np
 import torch
 from torch import Tensor
 from torch.nn import Module
 from torch.utils.data import DataLoader
+
+import flwr as fl
 
 from .dataset import load_data
 from .models import get_net, test, train

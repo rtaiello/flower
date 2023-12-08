@@ -1,8 +1,10 @@
-import flwr as fl
-import utils
-from sklearn.metrics import log_loss
-from sklearn.linear_model import LogisticRegression
 from typing import Dict
+
+import utils
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import log_loss
+
+import flwr as fl
 
 
 def fit_round(server_round: int) -> Dict:

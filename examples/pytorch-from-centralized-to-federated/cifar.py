@@ -11,7 +11,7 @@ https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html
 # pylint: disable=W0223
 
 
-from typing import Tuple, Dict
+from typing import Dict, Tuple
 
 import torch
 import torch.nn as nn

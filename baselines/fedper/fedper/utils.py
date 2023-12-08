@@ -8,12 +8,12 @@ from typing import Callable, Optional, Type, Union
 
 import matplotlib.pyplot as plt
 import numpy as np
-from flwr.server.history import History
-from omegaconf import DictConfig
-
 from fedper.client import BaseClient, FedPerClient, get_client_fn_simulation
 from fedper.implemented_models.mobile_model import MobileNet, MobileNetModelSplit
 from fedper.implemented_models.resnet_model import ResNet, ResNetModelSplit
+from omegaconf import DictConfig
+
+from flwr.server.history import History
 
 
 def set_model_class(config: DictConfig) -> DictConfig:

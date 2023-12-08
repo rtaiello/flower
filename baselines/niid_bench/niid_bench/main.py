@@ -6,18 +6,18 @@ model is going to be evaluated, etc. At the end, this script saves the results.
 import os
 import pickle
 
-import flwr as fl
 import hydra
-from flwr.server.client_manager import SimpleClientManager
-from flwr.server.server import Server
 from hydra.core.hydra_config import HydraConfig
 from hydra.utils import call, instantiate
-from omegaconf import DictConfig, OmegaConf
-
 from niid_bench.dataset import load_datasets
 from niid_bench.server_fednova import FedNovaServer
 from niid_bench.server_scaffold import ScaffoldServer, gen_evaluate_fn
 from niid_bench.strategy import FedNovaStrategy, ScaffoldStrategy
+from omegaconf import DictConfig, OmegaConf
+
+import flwr as fl
+from flwr.server.client_manager import SimpleClientManager
+from flwr.server.server import Server
 
 
 @hydra.main(config_path="conf", config_name="fedavg_base", version_base=None)

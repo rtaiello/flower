@@ -3,9 +3,9 @@ import time
 import numpy as np
 
 import flwr as fl
-from flwr.common import Status, FitIns, FitRes, Code
-from flwr.common.parameter import ndarrays_to_parameters
 from flwr.client.secure_aggregation import SecAggPlusHandler
+from flwr.common import Code, FitIns, FitRes, Status
+from flwr.common.parameter import ndarrays_to_parameters
 
 
 # Define Flower client with the SecAgg+ protocol

@@ -16,6 +16,7 @@ from flwr.server.client_proxy import ClientProxy
 from .aggregate import secure_aggregate
 from .fedavg import FedAvg
 
+
 class FlamingoFedAvg(FedAvg):
     def __init__(
         self,
@@ -37,7 +38,6 @@ class FlamingoFedAvg(FedAvg):
         fit_metrics_aggregation_fn: Optional[MetricsAggregationFn] = None,
         evaluate_metrics_aggregation_fn: Optional[MetricsAggregationFn] = None,
     ) -> None:
-
         super().__init__(
             fraction_fit=fraction_fit,
             fraction_evaluate=fraction_evaluate,
@@ -52,7 +52,6 @@ class FlamingoFedAvg(FedAvg):
             fit_metrics_aggregation_fn=fit_metrics_aggregation_fn,
             evaluate_metrics_aggregation_fn=evaluate_metrics_aggregation_fn,
         )
-
 
     def aggregate_fit(
         self,
@@ -72,5 +71,7 @@ class FlamingoFedAvg(FedAvg):
             (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
             for _, fit_res in results
         ]
-        parameters_aggregated = ndarrays_to_parameters(secure_aggregate(weights_results))
+        parameters_aggregated = ndarrays_to_parameters(
+            secure_aggregate(weights_results)
+        )
         return parameters_aggregated, {}

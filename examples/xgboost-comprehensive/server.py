@@ -1,16 +1,15 @@
-from typing import Dict
 from logging import INFO
+from typing import Dict
+
 import xgboost as xgb
+from dataset import resplit, transform_dataset_to_dmatrix
+from flwr_datasets import FederatedDataset
+from utils import BST_PARAMS, server_args_parser
 
 import flwr as fl
-from flwr.common.logger import log
 from flwr.common import Parameters, Scalar
-from flwr_datasets import FederatedDataset
+from flwr.common.logger import log
 from flwr.server.strategy import FedXgbBagging
-
-from utils import server_args_parser, BST_PARAMS
-from dataset import resplit, transform_dataset_to_dmatrix
-
 
 # Parse arguments for experimental settings
 args = server_args_parser()

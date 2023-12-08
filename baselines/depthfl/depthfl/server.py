@@ -6,19 +6,19 @@ from logging import DEBUG, INFO
 from typing import Callable, Dict, List, Optional, Tuple, Union
 
 import torch
+from depthfl.client import prune
+from depthfl.models import test, test_sbn
+from depthfl.strategy import aggregate_fit_depthfl
+from depthfl.strategy_hetero import aggregate_fit_hetero
+from hydra.utils import instantiate
+from omegaconf import DictConfig
+from torch.utils.data import DataLoader
+
 from flwr.common import FitRes, Parameters, Scalar, parameters_to_ndarrays
 from flwr.common.logger import log
 from flwr.common.typing import NDArrays
 from flwr.server.client_proxy import ClientProxy
 from flwr.server.server import Server, fit_clients
-from hydra.utils import instantiate
-from omegaconf import DictConfig
-from torch.utils.data import DataLoader
-
-from depthfl.client import prune
-from depthfl.models import test, test_sbn
-from depthfl.strategy import aggregate_fit_depthfl
-from depthfl.strategy_hetero import aggregate_fit_hetero
 
 FitResultsAndFailures = Tuple[
     List[Tuple[ClientProxy, FitRes]],

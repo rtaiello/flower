@@ -20,10 +20,10 @@ import math
 import unittest
 from typing import Tuple
 
+from flwr_datasets.partitioner.natural_id_partitioner import NaturalIdPartitioner
 from parameterized import parameterized
 
 from datasets import Dataset
-from flwr_datasets.partitioner.natural_id_partitioner import NaturalIdPartitioner
 
 
 def _dummy_setup(

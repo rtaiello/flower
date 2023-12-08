@@ -9,13 +9,13 @@ import os
 from collections import OrderedDict
 from typing import Callable, Dict, List, Tuple
 
-import flwr as fl
 import torch
-from flwr.common.typing import NDArrays, Scalar
+from moon.models import init_net, train_fedprox, train_moon
 from omegaconf import DictConfig
 from torch.utils.data import DataLoader
 
-from moon.models import init_net, train_fedprox, train_moon
+import flwr as fl
+from flwr.common.typing import NDArrays, Scalar
 
 
 # pylint: disable=too-many-instance-attributes

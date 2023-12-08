@@ -5,6 +5,9 @@ from logging import INFO, WARNING
 from typing import Dict, List, Optional, Tuple, Union
 
 import numpy as np
+from dasha.client import CompressionClient, DashaClient, MarinaClient
+from dasha.compressors import IdentityUnbiasedCompressor, decompress, estimate_size
+
 from flwr.common import (
     EvaluateIns,
     EvaluateRes,
@@ -20,9 +23,6 @@ from flwr.server.client_manager import ClientManager
 from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy.aggregate import weighted_loss_avg
 from flwr.server.strategy.strategy import Strategy
-
-from dasha.client import CompressionClient, DashaClient, MarinaClient
-from dasha.compressors import IdentityUnbiasedCompressor, decompress, estimate_size
 
 
 class _CompressionAggregator(Strategy):

@@ -3,12 +3,12 @@
 
 from typing import Dict, List, Tuple
 
-import flwr as fl
-import numpy as np
 import mxnet as mx
+import mxnet_mnist
+import numpy as np
 from mxnet import nd
 
-import mxnet_mnist
+import flwr as fl
 
 
 # Flower Client

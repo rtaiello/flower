@@ -2,22 +2,22 @@
 import os
 from typing import Dict, List
 
-import flwr as fl
 import hydra
 import numpy as np
-import torch.random
-from flwr.common import Scalar
-from flwr.server.history import History
-from flwr.server.strategy import FedAvg
-from hydra.core.hydra_config import HydraConfig
-from omegaconf import DictConfig, OmegaConf
-from torch.utils.data import DataLoader
-
 import tamuna.client as client
 import tamuna.server as server
+import torch.random
+from hydra.core.hydra_config import HydraConfig
+from omegaconf import DictConfig, OmegaConf
 from tamuna.dataset import load_datasets
 from tamuna.strategy import TamunaStrategy
 from tamuna.utils import compare_histories, save_results_as_pickle
+from torch.utils.data import DataLoader
+
+import flwr as fl
+from flwr.common import Scalar
+from flwr.server.history import History
+from flwr.server.strategy import FedAvg
 
 
 @hydra.main(config_path="conf", config_name="base", version_base=None)

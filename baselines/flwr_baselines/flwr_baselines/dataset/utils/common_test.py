@@ -19,8 +19,6 @@ import unittest
 from typing import List
 
 import numpy as np
-from numpy.random import default_rng
-
 from flwr_baselines.dataset.utils.common import (
     XY,
     combine_partitions,
@@ -35,6 +33,7 @@ from flwr_baselines.dataset.utils.common import (
     split_array_at_indices,
     split_at_fraction,
 )
+from numpy.random import default_rng
 
 
 def hash_xy(xy: XY) -> int:

@@ -4,15 +4,15 @@
 from collections import OrderedDict
 from typing import Callable, Dict, List, Tuple
 
-import flwr as fl
 import numpy as np
 import torch
-from flwr.common.typing import NDArrays, Scalar
+from fedprox.models import test, train
 from hydra.utils import instantiate
 from omegaconf import DictConfig
 from torch.utils.data import DataLoader
 
-from fedprox.models import test, train
+import flwr as fl
+from flwr.common.typing import NDArrays, Scalar
 
 
 # pylint: disable=too-many-arguments

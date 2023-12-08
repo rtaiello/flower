@@ -2,15 +2,15 @@
 
 from typing import Dict, Union
 
-import flwr as fl
 import hydra
+from fedprox import client, server, utils
+from fedprox.dataset import load_datasets
+from fedprox.utils import save_results_as_pickle
 from hydra.core.hydra_config import HydraConfig
 from hydra.utils import instantiate
 from omegaconf import DictConfig, OmegaConf
 
-from fedprox import client, server, utils
-from fedprox.dataset import load_datasets
-from fedprox.utils import save_results_as_pickle
+import flwr as fl
 
 FitConfig = Dict[str, Union[bool, float]]
 

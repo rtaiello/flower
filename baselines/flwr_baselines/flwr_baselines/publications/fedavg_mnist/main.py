@@ -3,13 +3,13 @@
 
 from pathlib import Path
 
-import flwr as fl
 import hydra
 import numpy as np
 import torch
+from flwr_baselines.publications.fedavg_mnist import client, utils
 from omegaconf import DictConfig
 
-from flwr_baselines.publications.fedavg_mnist import client, utils
+import flwr as fl
 
 DEVICE: torch.device = torch.device("cpu")
 

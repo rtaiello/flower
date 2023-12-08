@@ -8,6 +8,9 @@ from typing import Dict, List, Optional, Tuple, Union
 import numpy as np
 import torch
 import torch.nn as nn
+from hydra.utils import instantiate
+from omegaconf import DictConfig
+
 from flwr.common import (
     NDArrays,
     Parameters,
@@ -19,8 +22,6 @@ from flwr.common.logger import log
 from flwr.common.typing import FitRes
 from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy import FedAvg
-from hydra.utils import instantiate
-from omegaconf import DictConfig
 
 
 class HeteroFL(FedAvg):

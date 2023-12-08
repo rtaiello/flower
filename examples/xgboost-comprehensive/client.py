@@ -1,10 +1,17 @@
 import warnings
 from logging import INFO
+
 import xgboost as xgb
+from dataset import (
+    instantiate_partitioner,
+    resplit,
+    train_test_split,
+    transform_dataset_to_dmatrix,
+)
+from flwr_datasets import FederatedDataset
+from utils import BST_PARAMS, client_args_parser
 
 import flwr as fl
-from flwr_datasets import FederatedDataset
-from flwr.common.logger import log
 from flwr.common import (
     Code,
     EvaluateIns,
@@ -16,15 +23,7 @@ from flwr.common import (
     Parameters,
     Status,
 )
-
-from dataset import (
-    instantiate_partitioner,
-    train_test_split,
-    transform_dataset_to_dmatrix,
-    resplit,
-)
-from utils import client_args_parser, BST_PARAMS
-
+from flwr.common.logger import log
 
 warnings.filterwarnings("ignore", category=UserWarning)
 

@@ -1,7 +1,6 @@
 import warnings
 from collections import OrderedDict
 
-import flwr as fl
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -10,6 +9,7 @@ from torchvision.datasets import CIFAR10
 from torchvision.transforms import Compose, Normalize, ToTensor
 from tqdm import tqdm
 
+import flwr as fl
 
 # #############################################################################
 # 1. Regular PyTorch pipeline: nn.Module, train, test, and DataLoader

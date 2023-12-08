@@ -8,17 +8,17 @@ import sys
 import time
 import traceback
 
-import flwr as fl
+import dasha.dataset
 import hydra
 import numpy as np
 import torch
-from flwr.server.history import History
+from dasha.dataset_preparation import find_pre_downloaded_or_download_dataset
 from hydra.core.hydra_config import HydraConfig
 from hydra.utils import instantiate
 from omegaconf import DictConfig, OmegaConf
 
-import dasha.dataset
-from dasha.dataset_preparation import find_pre_downloaded_or_download_dataset
+import flwr as fl
+from flwr.server.history import History
 
 LOCAL_ADDRESS = "localhost:8080"
 

@@ -22,43 +22,57 @@ import numpy as np
 from flwr.common.typing import NDArrayFloat, NDArrayInt
 
 
-def _stochastic_round(arr: NDArrayFloat) -> NDArrayInt:
-    ret: NDArrayInt = np.ceil(arr).astype(np.int32)
-    rand_arr = np.random.rand(*ret.shape)
-    ret[rand_arr < ret - arr] -= 1
-    return ret
-
+CLIPPING_RANGE = 3
+TARGET_RANGE = 2**16
 
 def quantize(
-    parameters: List[NDArrayFloat], clipping_range: float, target_range: int
-) -> List[NDArrayInt]:
-    """Quantize float Numpy arrays to integer Numpy arrays."""
-    quantized_list: List[NDArrayInt] = []
-    quantizer = target_range / (2 * clipping_range)
-    for arr in parameters:
-        # Stochastic quantization
-        pre_quantized = cast(
-            NDArrayFloat,
-            (np.clip(arr, -clipping_range, clipping_range) + clipping_range)
-            * quantizer,
+    weights: List[float],
+    clipping_range: int = CLIPPING_RANGE,
+    target_range: int = TARGET_RANGE,
+) -> List[int]:
+    f = np.vectorize(
+        lambda x: min(
+            target_range - 1,
+            (sorted((-clipping_range, x, clipping_range))[1] + clipping_range)
+            * target_range
+            / (2 * clipping_range),
         )
-        quantized = _stochastic_round(pre_quantized)
-        quantized_list.append(quantized)
-    return quantized_list
+    )
+    quantized_list = f(weights).astype(int)
+
+    return quantized_list.tolist()
 
 
-# Dequantize parameters to range [-clipping_range, clipping_range]
-def dequantize(
-    quantized_parameters: List[NDArrayInt],
-    clipping_range: float,
-    target_range: int,
-) -> List[NDArrayFloat]:
-    """Dequantize integer Numpy arrays to float Numpy arrays."""
-    reverse_quantized_list: List[NDArrayFloat] = []
-    quantizer = (2 * clipping_range) / target_range
-    shift = -clipping_range
-    for arr in quantized_parameters:
-        recon_arr = arr.view(np.ndarray).astype(float)
-        recon_arr = cast(NDArrayFloat, recon_arr * quantizer + shift)
-        reverse_quantized_list.append(recon_arr)
+def multiply(xs, k):
+    """
+    Multiplies a list of integers by a constant
+
+    Args:
+        xs: List of integers
+        k: Constant to multiply by
+
+    Returns:
+        List of multiplied integers
+    """
+    xs = np.array(xs, dtype=np.uint32)
+    return (xs * k).tolist()
+
+def divide(xs, k):
+        xs = np.array(xs, dtype=np.uint32)
+        return (xs / k).tolist()
+
+
+def reverse_quantize(
+    weights: List[int],
+    clipping_range: int = CLIPPING_RANGE,
+    target_range: int = TARGET_RANGE,
+) -> List[float]:
+    max_range = clipping_range
+    min_range = -clipping_range
+    step_size = (max_range - min_range) / (target_range - 1)
+    f = np.vectorize(lambda x: (min_range + step_size * x))
+
+    weights = np.array(weights)
+    reverse_quantized_list = f(weights.astype(np.float32))
+
     return reverse_quantized_list

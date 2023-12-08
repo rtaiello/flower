@@ -3,7 +3,6 @@
 import unittest
 
 import torch
-
 from dasha.models import LinearNetWithNonConvexLoss, ResNet18WithLogisticLoss
 
 

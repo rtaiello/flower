@@ -17,10 +17,10 @@
 
 import unittest
 
+from flwr_datasets.partitioner.linear_partitioner import LinearPartitioner
 from parameterized import parameterized
 
 from datasets import Dataset
-from flwr_datasets.partitioner.linear_partitioner import LinearPartitioner
 
 
 def _dummy_dataset(num_rows: int) -> Dataset:

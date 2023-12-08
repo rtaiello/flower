@@ -1,17 +1,15 @@
 import argparse
 from collections import OrderedDict
-from typing import Dict, Tuple, List
+from typing import Dict, List, Tuple
 
 import torch
 import torchvision
 from torch.utils.data import DataLoader, random_split
+from utils import Net, get_mnist, test, train
 
 import flwr as fl
 from flwr.common import Metrics
 from flwr.common.typing import Scalar
-
-from utils import Net, train, test, get_mnist
-
 
 parser = argparse.ArgumentParser(description="Flower Simulation with PyTorch")
 

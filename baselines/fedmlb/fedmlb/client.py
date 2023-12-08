@@ -2,8 +2,9 @@
 
 from typing import Dict, Tuple
 
-import flwr as fl
 import tensorflow as tf
+
+import flwr as fl
 from flwr.common import NDArrays, Scalar
 
 

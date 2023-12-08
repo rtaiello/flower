@@ -1,15 +1,14 @@
 """Flower client example using JAX for linear regression."""
 
 
-from typing import Dict, List, Tuple, Callable
+from typing import Callable, Dict, List, Tuple
 
-import flwr as fl
-import numpy as np
 import jax
 import jax.numpy as jnp
-
 import jax_training
+import numpy as np
 
+import flwr as fl
 
 # Load data and determine model shape
 train_x, train_y, test_x, test_y = jax_training.load_data()
@@ -50,8 +49,10 @@ class FlowerClient(fl.client.NumPyClient):
         )
         return float(loss), num_examples, {"loss": float(loss)}
 
+
 def client_fn(cid):
     return FlowerClient().to_client()
+
 
 flower = fl.flower.Flower(
     client_fn=client_fn,

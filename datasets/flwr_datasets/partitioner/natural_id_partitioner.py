@@ -17,8 +17,9 @@
 
 from typing import Dict
 
-import datasets
 from flwr_datasets.partitioner.partitioner import Partitioner
+
+import datasets
 
 
 class NaturalIdPartitioner(Partitioner):

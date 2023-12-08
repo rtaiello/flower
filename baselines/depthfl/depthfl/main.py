@@ -2,17 +2,17 @@
 
 import copy
 
-import flwr as fl
 import hydra
-from flwr.common import ndarrays_to_parameters
-from flwr.server.client_manager import SimpleClientManager
+from depthfl import client, server
+from depthfl.dataset import load_datasets
+from depthfl.utils import save_results_as_pickle
 from hydra.core.hydra_config import HydraConfig
 from hydra.utils import instantiate
 from omegaconf import DictConfig, OmegaConf
 
-from depthfl import client, server
-from depthfl.dataset import load_datasets
-from depthfl.utils import save_results_as_pickle
+import flwr as fl
+from flwr.common import ndarrays_to_parameters
+from flwr.server.client_manager import SimpleClientManager
 
 
 @hydra.main(config_path="conf", config_name="config", version_base=None)

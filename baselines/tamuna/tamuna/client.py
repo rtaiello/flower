@@ -6,15 +6,15 @@ import pickle
 from collections import OrderedDict
 from typing import Callable, Dict, List, Tuple
 
-import flwr as fl
 import torch
-from flwr.common.typing import NDArrays, Scalar
 from hydra.utils import instantiate
 from omegaconf import DictConfig
-from torch.utils.data import DataLoader
-
 from tamuna.models import fedavg_train, tamuna_train
 from tamuna.utils import apply_nn_compression
+from torch.utils.data import DataLoader
+
+import flwr as fl
+from flwr.common.typing import NDArrays, Scalar
 
 
 class TamunaClient(fl.client.NumPyClient):

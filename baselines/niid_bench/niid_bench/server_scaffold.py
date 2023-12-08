@@ -5,6 +5,11 @@ from logging import DEBUG, INFO
 from typing import OrderedDict
 
 import torch
+from hydra.utils import instantiate
+from niid_bench.models import test
+from omegaconf import DictConfig
+from torch.utils.data import DataLoader
+
 from flwr.common import (
     Code,
     FitIns,
@@ -29,11 +34,6 @@ from flwr.server import Server
 from flwr.server.client_manager import ClientManager, SimpleClientManager
 from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy import Strategy
-from hydra.utils import instantiate
-from omegaconf import DictConfig
-from torch.utils.data import DataLoader
-
-from niid_bench.models import test
 
 FitResultsAndFailures = Tuple[
     List[Tuple[ClientProxy, FitRes]],

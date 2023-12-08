@@ -6,12 +6,7 @@ model is going to be evaluated, etc. At the end, this script saves the results.
 
 from pathlib import Path
 
-import flwr as fl
 import hydra
-from hydra.core.hydra_config import HydraConfig
-from hydra.utils import instantiate
-from omegaconf import DictConfig, OmegaConf
-
 from fedper.dataset import dataset_main
 from fedper.utils import (
     get_client_fn,
@@ -23,6 +18,11 @@ from fedper.utils import (
     set_num_classes,
     set_server_target,
 )
+from hydra.core.hydra_config import HydraConfig
+from hydra.utils import instantiate
+from omegaconf import DictConfig, OmegaConf
+
+import flwr as fl
 
 
 @hydra.main(config_path="conf", config_name="base", version_base=None)

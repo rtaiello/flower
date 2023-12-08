@@ -8,13 +8,12 @@ from typing import Any, List
 import numpy as np
 import torch
 import torch.nn as nn
-from omegaconf import OmegaConf
-
 from dasha.dataset import _load_test_dataset
 from dasha.dataset_preparation import DatasetType
 from dasha.main import run_parallel
 from dasha.models import ClassificationModel
 from dasha.tests.test_clients import DummyNetTwoParameters
+from omegaconf import OmegaConf
 
 TESTDATA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "datasets")
 

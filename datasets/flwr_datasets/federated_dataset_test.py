@@ -21,12 +21,12 @@ from typing import Dict, Union
 from unittest.mock import Mock, patch
 
 import pytest
+from flwr_datasets.federated_dataset import FederatedDataset
+from flwr_datasets.partitioner import IidPartitioner, Partitioner
 from parameterized import parameterized, parameterized_class
 
 import datasets
 from datasets import Dataset, DatasetDict, concatenate_datasets
-from flwr_datasets.federated_dataset import FederatedDataset
-from flwr_datasets.partitioner import IidPartitioner, Partitioner
 
 
 @parameterized_class(

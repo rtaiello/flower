@@ -9,11 +9,6 @@ import numpy as np
 import pandas as pd
 import torch
 import torchvision.transforms as transforms
-from flwr.common.logger import log
-from PIL import Image
-from sklearn import preprocessing
-from torch.utils.data import DataLoader, Dataset, Subset, random_split
-
 from flwr_baselines.publications.leaf.femnist.dataset.nist_preprocessor import (
     NISTPreprocessor,
 )
@@ -21,6 +16,11 @@ from flwr_baselines.publications.leaf.femnist.dataset.nist_sampler import NistSa
 from flwr_baselines.publications.leaf.femnist.dataset.zip_downloader import (
     ZipDownloader,
 )
+from PIL import Image
+from sklearn import preprocessing
+from torch.utils.data import DataLoader, Dataset, Subset, random_split
+
+from flwr.common.logger import log
 
 
 class NISTLikeDataset(Dataset):

@@ -117,6 +117,7 @@ class SecAggPlusState:
 
 class SecAggPlusHandler(SecureAggregationHandler):
     """Message handler for the SecAgg+ protocol."""
+
     _shared_state = SecAggPlusState()
     _current_stage = STAGE_UNMASK
 

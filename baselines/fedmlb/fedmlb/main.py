@@ -8,21 +8,12 @@ import os
 import shutil
 from typing import Callable, Dict, Optional, Tuple
 
-# these are the basic packages you'll need here
-# feel free to remove some if aren't needed
-import flwr
-import hydra
-import numpy as np
-import tensorflow as tf
-from flwr.common import NDArrays, Scalar
-from flwr.simulation.ray_transport.utils import enable_tf_gpu_growth
-from hydra.core.hydra_config import HydraConfig
-from hydra.utils import instantiate
-from omegaconf import DictConfig, OmegaConf
-
 import fedmlb.dataset as fedmlb_datasets
 import fedmlb.dataset_preparation as fedmlb_ds_preparation
 import fedmlb.models as fedmlb_models
+import hydra
+import numpy as np
+import tensorflow as tf
 from fedmlb.client import TFClient
 from fedmlb.fedavg_kd_model import FedAvgKDModel
 from fedmlb.fedmlb_model import FedMLBModel
@@ -35,6 +26,15 @@ from fedmlb.utils import (
     get_gpu_memory,
     save_results_as_pickle,
 )
+from hydra.core.hydra_config import HydraConfig
+from hydra.utils import instantiate
+from omegaconf import DictConfig, OmegaConf
+
+# these are the basic packages you'll need here
+# feel free to remove some if aren't needed
+import flwr
+from flwr.common import NDArrays, Scalar
+from flwr.simulation.ray_transport.utils import enable_tf_gpu_growth
 
 # Make TensorFlow logs less verbose
 

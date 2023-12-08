@@ -100,14 +100,17 @@ class FlowerClient(fl.client.NumPyClient):
         loss, accuracy = test(net, testloader)
         return loss, len(testloader.dataset), {"accuracy": accuracy}
 
+
 def set_parameters(model, parameters):
     params_dict = zip(model.state_dict().keys(), parameters)
     state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
     model.load_state_dict(state_dict, strict=True)
-    return 
+    return
+
 
 def client_fn(cid):
     return FlowerClient().to_client()
+
 
 flower = fl.flower.Flower(
     client_fn=client_fn,

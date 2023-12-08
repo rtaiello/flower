@@ -10,16 +10,17 @@ import typing
 class FlowerServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     Join: grpc.StreamStreamMultiCallable[
-        flwr.proto.transport_pb2.ClientMessage,
-        flwr.proto.transport_pb2.ServerMessage]
-
+        flwr.proto.transport_pb2.ClientMessage, flwr.proto.transport_pb2.ServerMessage
+    ]
 
 class FlowerServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def Join(self,
+    def Join(
+        self,
         request_iterator: typing.Iterator[flwr.proto.transport_pb2.ClientMessage],
         context: grpc.ServicerContext,
     ) -> typing.Iterator[flwr.proto.transport_pb2.ServerMessage]: ...
 
-
-def add_FlowerServiceServicer_to_server(servicer: FlowerServiceServicer, server: grpc.Server) -> None: ...
+def add_FlowerServiceServicer_to_server(
+    servicer: FlowerServiceServicer, server: grpc.Server
+) -> None: ...

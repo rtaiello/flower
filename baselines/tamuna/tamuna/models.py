@@ -8,9 +8,8 @@ from typing import Tuple
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.utils.data import DataLoader
-
 from tamuna.utils import apply_nn_compression
+from torch.utils.data import DataLoader
 
 
 class Net(nn.Module):

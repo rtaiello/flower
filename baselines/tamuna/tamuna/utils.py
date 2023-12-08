@@ -8,9 +8,10 @@ from typing import List
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-from flwr.server.history import History
 from omegaconf import DictConfig
 from torch import nn
+
+from flwr.server.history import History
 
 
 def apply_nn_compression(net: nn.Module, mask: torch.tensor) -> nn.Module:

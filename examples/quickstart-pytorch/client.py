@@ -2,15 +2,15 @@ import argparse
 import warnings
 from collections import OrderedDict
 
-import flwr as fl
-from flwr_datasets import FederatedDataset
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from flwr_datasets import FederatedDataset
 from torch.utils.data import DataLoader
 from torchvision.transforms import Compose, Normalize, ToTensor
 from tqdm import tqdm
 
+import flwr as fl
 
 # #############################################################################
 # 1. Regular PyTorch pipeline: nn.Module, train, test, and DataLoader

@@ -1,11 +1,10 @@
 import unittest
 
 import numpy as np
+from flwr_datasets import FederatedDataset
 from parameterized import parameterized_class
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
-
-from flwr_datasets import FederatedDataset
 
 
 # Using parameterized testing, two different sets of preprocessing:
@@ -30,10 +29,14 @@ class FdsWithSKLearn(unittest.TestCase):
         partition = fds.load_partition(partition_id, "train")
         partition.set_format("numpy")
         partition_train_test = partition.train_test_split(test_size=0.2)
-        X_train, y_train = partition_train_test["train"]["image"], partition_train_test[
-            "train"]["label"]
-        X_test, y_test = partition_train_test["test"]["image"], partition_train_test[
-            "test"]["label"]
+        X_train, y_train = (
+            partition_train_test["train"]["image"],
+            partition_train_test["train"]["label"],
+        )
+        X_test, y_test = (
+            partition_train_test["test"]["image"],
+            partition_train_test["test"]["label"],
+        )
         X_train = X_train.reshape(-1, 28 * 28)
         X_test = X_test.reshape(-1, 28 * 28)
         if self.preprocessing:
@@ -87,8 +90,9 @@ class FdsWithSKLearn(unittest.TestCase):
         except Exception as e:
             self.fail(
                 f"Predicting using Logistic Regression model raised {type(e)} "
-                f"unexpectedly!")
+                f"unexpectedly!"
+            )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

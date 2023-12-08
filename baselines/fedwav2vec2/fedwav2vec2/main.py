@@ -4,15 +4,15 @@ It includes processioning the dataset, instantiate strategy, specify how the glo
 model is going to be evaluated, etc. At the end, this script saves the results.
 """
 
-import flwr as fl
 import hydra
+from fedwav2vec2.client import get_client_fn
+from fedwav2vec2.models import pre_trained_point
+from fedwav2vec2.server import get_evaluate_fn
 from hydra.core.hydra_config import HydraConfig
 from hydra.utils import instantiate
 from omegaconf import DictConfig, OmegaConf
 
-from fedwav2vec2.client import get_client_fn
-from fedwav2vec2.models import pre_trained_point
-from fedwav2vec2.server import get_evaluate_fn
+import flwr as fl
 
 
 @hydra.main(config_path="conf", config_name="base", version_base=None)

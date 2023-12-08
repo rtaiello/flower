@@ -7,11 +7,10 @@ import torch
 import torch.utils.data as data_utils
 import torchvision
 import torchvision.transforms as transforms
+from dasha.dataset_preparation import DatasetType, train_dataset_path
 from omegaconf import DictConfig
 from sklearn.datasets import load_svmlight_file
 from torch.utils.data import Dataset
-
-from dasha.dataset_preparation import DatasetType, train_dataset_path
 
 
 class LIBSVMDatasetName(Enum):

@@ -2,18 +2,18 @@
 
 from typing import Dict, Optional, Tuple
 
-import flwr as fl
 import numpy as np
 import torch
-from flwr.common.typing import NDArrays, Scalar
-from torch.utils.data import Dataset
-
 from dasha.compressors import (
     IdentityUnbiasedCompressor,
     UnbiasedBaseCompressor,
     decompress,
 )
 from dasha.models import ClassificationModel
+from torch.utils.data import Dataset
+
+import flwr as fl
+from flwr.common.typing import NDArrays, Scalar
 
 
 class CompressionClient(

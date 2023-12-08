@@ -1,14 +1,13 @@
-from typing import Dict, Optional, Tuple
-from collections import OrderedDict
 import argparse
+import warnings
+from collections import OrderedDict
+from typing import Dict, Optional, Tuple
+
+import torch
+import utils
 from torch.utils.data import DataLoader
 
 import flwr as fl
-import torch
-
-import utils
-
-import warnings
 
 warnings.filterwarnings("ignore")
 

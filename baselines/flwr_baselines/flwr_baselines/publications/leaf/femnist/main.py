@@ -5,19 +5,19 @@ import pathlib
 from functools import partial
 from typing import Type, Union
 
-import flwr as fl
 import hydra
 import pandas as pd
 import torch
-from flwr.server.strategy import FedAvg
-from omegaconf import DictConfig
-
 from flwr_baselines.publications.leaf.femnist.client import create_client
 from flwr_baselines.publications.leaf.femnist.dataset.dataset import (
     create_federated_dataloaders,
 )
 from flwr_baselines.publications.leaf.femnist.strategy import FedAvgSameClients
 from flwr_baselines.publications.leaf.femnist.utils import setup_seed, weighted_average
+from omegaconf import DictConfig
+
+import flwr as fl
+from flwr.server.strategy import FedAvg
 
 
 # pylint: disable=too-many-locals

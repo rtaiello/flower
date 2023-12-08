@@ -6,14 +6,14 @@ from logging import DEBUG, WARN
 from typing import Dict, Union
 
 import pandas as pd
-from flwr.common.logger import log
-from PIL import Image
-from tqdm import tqdm
-
 from flwr_baselines.publications.leaf.femnist.dataset.utils import (
     calculate_series_hashes,
     hex_decimal_to_char,
 )
+from PIL import Image
+from tqdm import tqdm
+
+from flwr.common.logger import log
 
 
 # pylint: disable=too-many-instance-attributes

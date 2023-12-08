@@ -16,6 +16,7 @@
 
 import os
 import sys
+
 from git import Repo
 from sphinx.application import ConfigError
 

@@ -1,6 +1,6 @@
-import flwr as fl
 from pathlib import Path
 
+import flwr as fl
 
 # Start Flower server
 hist = fl.driver.start_driver(

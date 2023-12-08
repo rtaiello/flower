@@ -1,7 +1,6 @@
 import flwr as fl
 from flwr.server.strategy import FedXgbBagging
 
-
 # FL experimental settings
 pool_size = 2
 num_rounds = 5

@@ -1,8 +1,9 @@
-from typing import Dict, Optional, Tuple
 from pathlib import Path
+from typing import Dict, Optional, Tuple
+
+import tensorflow as tf
 
 import flwr as fl
-import tensorflow as tf
 
 
 def main() -> None:

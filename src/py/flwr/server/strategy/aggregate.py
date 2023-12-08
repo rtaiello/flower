@@ -21,42 +21,30 @@ from typing import Any, Callable, List, Tuple
 import numpy as np
 
 from flwr.common import NDArray, NDArrays
-
-CLIPPING_RANGE = 3
-TARGET_RANGE = 2**16
+from flwr.common.secure_aggregation.quantization import reverse_quantize, divide
 
 
 def secure_aggregate(results: List[Tuple[NDArrays, int]]) -> NDArrays:
-
-    def divide(xs, k):
-        xs = np.array(xs, dtype=np.uint32)
-        return (xs / k).tolist()
-
-
-    def reverse_quantize(
-        weights: List[int],
-        clipping_range: int = CLIPPING_RANGE,
-        target_range: int = TARGET_RANGE,
-    ) -> List[float]:
-        max_range = clipping_range
-        min_range = -clipping_range
-        step_size = (max_range - min_range) / (target_range - 1)
-        f = np.vectorize(lambda x: (min_range + step_size * x))
-
-        weights = np.array(weights)
-        reverse_quantized_list = f(weights.astype(np.float32))
-
-        return reverse_quantized_list
-    
-    weighted_weights = np.sum([np.array(layer, dtype=np.uint32) for weights, _ in results for layer in weights], axis=0)
+    # sum of the quantized weighted weights (first element is the number of examples)
+    weighted_weights = np.sum(
+        [
+            np.array(layer, dtype=np.uint32)
+            for weights, _ in results
+            for layer in weights
+        ],
+        axis=0,
+    )
+    # convert to int32
     weighted_weights = weighted_weights.astype(np.int32)
+    # get the first element (number of examples)
     num_examples_total = weighted_weights[0]
+    # remove the first element
     weighted_weights = weighted_weights[1:]
+    # divide by the number of examples
     weights_prime_quantized = divide(weighted_weights, num_examples_total)
+    # reverse quantization
     weights_prime = reverse_quantize(weights_prime_quantized)
     return [np.array(weights_prime, dtype=np.float32)]
-    
-
 
 
 def aggregate(results: List[Tuple[NDArrays, int]]) -> NDArrays:

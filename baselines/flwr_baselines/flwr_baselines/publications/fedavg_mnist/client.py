@@ -5,13 +5,13 @@
 from collections import OrderedDict
 from typing import Callable, Dict, Tuple
 
-import flwr as fl
 import torch
-from flwr.common.typing import NDArrays, Scalar
-from torch.utils.data import DataLoader
-
 from flwr_baselines.publications.fedavg_mnist import model
 from flwr_baselines.publications.fedavg_mnist.dataset import load_datasets
+from torch.utils.data import DataLoader
+
+import flwr as fl
+from flwr.common.typing import NDArrays, Scalar
 
 
 class FlowerClient(fl.client.NumPyClient):

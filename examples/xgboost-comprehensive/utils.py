@@ -1,6 +1,5 @@
 import argparse
 
-
 BST_PARAMS = {
     "objective": "binary:logistic",
     "eta": 0.1,  # Learning rate

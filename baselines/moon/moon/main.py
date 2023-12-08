@@ -8,19 +8,19 @@ import random
 import shutil
 from pathlib import Path
 
-# these are the basic packages you'll need here
-# feel free to remove some if aren't needed
-import flwr as fl
 import hydra
 import numpy as np
 import torch
 from hydra.core.hydra_config import HydraConfig
-from omegaconf import DictConfig, OmegaConf
-
 from moon import client, server
 from moon.dataset import get_dataloader
 from moon.dataset_preparation import partition_data
 from moon.utils import plot_metric_from_history
+from omegaconf import DictConfig, OmegaConf
+
+# these are the basic packages you'll need here
+# feel free to remove some if aren't needed
+import flwr as fl
 
 
 @hydra.main(config_path="conf", config_name="base", version_base=None)

@@ -6,7 +6,6 @@ import pandas as pd
 
 import flwr as fl
 
-
 df = pd.read_csv("./data/client.csv")
 
 column_names = ["sepal length (cm)", "sepal width (cm)"]

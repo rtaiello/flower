@@ -7,12 +7,12 @@ https://mxnet.apache.org/api/python/docs/tutorials/packages/gluon/image/mnist.ht
 
 
 from typing import List, Tuple
+
 import mxnet as mx
-from mxnet import gluon
-from mxnet.gluon import nn
-from mxnet import autograd as ag
 import mxnet.ndarray as F
-from mxnet import nd
+from mxnet import autograd as ag
+from mxnet import gluon, nd
+from mxnet.gluon import nn
 
 # Fixing the random seed
 mx.random.seed(42)

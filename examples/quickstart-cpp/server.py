@@ -1,6 +1,7 @@
-import flwr as fl
 import numpy as np
 from fedavg_cpp import FedAvgCpp, weights_to_parameters
+
+import flwr as fl
 
 # Start Flower server for three rounds of federated learning
 if __name__ == "__main__":

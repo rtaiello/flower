@@ -3,10 +3,9 @@ from typing import Dict, List, Optional, Tuple, Union
 
 import torch
 import torch.nn as nn
+from fedper.models import ModelManager, ModelSplit
 from omegaconf import DictConfig
 from torch.utils.data import DataLoader
-
-from fedper.models import ModelManager, ModelSplit
 
 # Set model architecture
 ARCHITECTURE = {

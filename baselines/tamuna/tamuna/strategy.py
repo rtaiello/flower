@@ -2,13 +2,13 @@
 
 from typing import Callable, List
 
-import flwr.common
 import numpy as np
 import torch
+from tamuna.models import Net
+
+import flwr.common
 from flwr.common import FitIns, NDArrays, ndarrays_to_parameters, parameters_to_ndarrays
 from flwr.server.strategy import Strategy
-
-from tamuna.models import Net
 
 
 def aggregate(weights: List[NDArrays], sparsity: float) -> NDArrays:

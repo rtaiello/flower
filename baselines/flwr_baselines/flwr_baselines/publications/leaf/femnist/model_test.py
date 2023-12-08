@@ -3,9 +3,8 @@
 import unittest
 
 import torch
-from hamcrest import assert_that, equal_to
-
 from flwr_baselines.publications.leaf.femnist.model import Net
+from hamcrest import assert_that, equal_to
 
 
 class ModelTest(unittest.TestCase):

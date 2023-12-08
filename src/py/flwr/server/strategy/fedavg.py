@@ -184,7 +184,7 @@ class FedAvg(Strategy):
             num_clients=sample_size, min_num_clients=min_num_clients
         )
         # Return client/config pairs
-        
+
         return [(client, fit_ins) for client in clients]
 
     def configure_evaluate(

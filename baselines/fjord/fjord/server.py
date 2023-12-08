@@ -1,9 +1,10 @@
 """Global evaluation function."""
 from typing import Any, Dict, Optional, Tuple
 
-import flwr as fl
 import torch
 from torch.utils.data import DataLoader
+
+import flwr as fl
 
 from .models import get_net, test
 from .utils.logger import Logger

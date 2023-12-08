@@ -1,11 +1,13 @@
-import flwr as fl
-
 from client import FlowerClient
 from strategy import FedAnalytics
+
+import flwr as fl
+
 
 def client_fn(cid):
     _ = cid
     return FlowerClient()
+
 
 hist = fl.simulation.start_simulation(
     client_fn=client_fn,

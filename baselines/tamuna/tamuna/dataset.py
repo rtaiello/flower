@@ -1,9 +1,8 @@
 """Load the MNIST dataset into train and test loaders."""
 from typing import List, Optional, Tuple
 
-from torch.utils.data import DataLoader
-
 from tamuna.dataset_preparation import partition_data
+from torch.utils.data import DataLoader
 
 
 def load_datasets(

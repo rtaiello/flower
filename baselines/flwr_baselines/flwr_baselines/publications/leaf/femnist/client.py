@@ -3,12 +3,12 @@
 
 from typing import Dict, List, Tuple
 
-import flwr as fl
 import torch
-from flwr.common.typing import NDArrays, Scalar
+from flwr_baselines.publications.leaf.femnist.model import Net, test, train
 from torch.utils.data import DataLoader
 
-from flwr_baselines.publications.leaf.femnist.model import Net, test, train
+import flwr as fl
+from flwr.common.typing import NDArrays, Scalar
 
 
 def get_parameters(net: torch.nn.Module) -> NDArrays:

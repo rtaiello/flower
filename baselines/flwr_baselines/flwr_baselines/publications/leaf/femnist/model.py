@@ -6,9 +6,10 @@ from typing import Optional, Tuple
 
 import torch
 import torch.nn as nn
-from flwr.common.logger import log
 from torch import Tensor
 from torch.utils.data import DataLoader
+
+from flwr.common.logger import log
 
 
 class Net(nn.Module):

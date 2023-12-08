@@ -15,10 +15,17 @@ class Node(google.protobuf.message.Message):
     ANONYMOUS_FIELD_NUMBER: builtins.int
     node_id: builtins.int
     anonymous: builtins.bool
-    def __init__(self,
+    def __init__(
+        self,
         *,
         node_id: builtins.int = ...,
         anonymous: builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["anonymous",b"anonymous","node_id",b"node_id"]) -> None: ...
+    ) -> None: ...
+    def ClearField(
+        self,
+        field_name: typing_extensions.Literal[
+            "anonymous", b"anonymous", "node_id", b"node_id"
+        ],
+    ) -> None: ...
+
 global___Node = Node

@@ -7,13 +7,14 @@ from collections import OrderedDict
 from enum import Enum, auto
 from typing import Dict, Optional
 
-import flwr as fl
 import numpy as np
 import speechbrain as sb
 import torch
 from speechbrain.dataio.dataloader import LoopedLoader
 from torch.utils.data import DataLoader
 from tqdm.contrib import tqdm
+
+import flwr as fl
 
 # Recipe for training a sequence-to-sequence ASR system with CommonVoice.
 # The system employs a wav2vec2 encoder and a CTC decoder.

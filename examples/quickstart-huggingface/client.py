@@ -1,19 +1,20 @@
-from collections import OrderedDict
+import random
 import warnings
+from collections import OrderedDict
+
+import numpy as np
+import torch
+from evaluate import load as load_metric
+from torch.utils.data import DataLoader
+from transformers import (
+    AdamW,
+    AutoModelForSequenceClassification,
+    AutoTokenizer,
+    DataCollatorWithPadding,
+)
 
 import flwr as fl
-import torch
-import numpy as np
-
-import random
-from torch.utils.data import DataLoader
-
 from datasets import load_dataset
-from evaluate import load as load_metric
-
-from transformers import AutoTokenizer, DataCollatorWithPadding
-from transformers import AutoModelForSequenceClassification
-from transformers import AdamW
 
 warnings.filterwarnings("ignore", category=UserWarning)
 DEVICE = torch.device("cpu")

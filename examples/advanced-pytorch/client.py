@@ -1,11 +1,13 @@
+import argparse
+import warnings
+from collections import OrderedDict
+
+import torch
+import torchvision.datasets
 import utils
 from torch.utils.data import DataLoader
-import torchvision.datasets
-import torch
+
 import flwr as fl
-import argparse
-from collections import OrderedDict
-import warnings
 
 warnings.filterwarnings("ignore")
 

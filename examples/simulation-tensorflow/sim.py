@@ -1,6 +1,6 @@
-import os
-import math
 import argparse
+import math
+import os
 from typing import Dict, List, Tuple
 
 import tensorflow as tf
@@ -8,7 +8,6 @@ import tensorflow as tf
 import flwr as fl
 from flwr.common import Metrics
 from flwr.simulation.ray_transport.utils import enable_tf_gpu_growth
-
 
 # Make TensorFlow logs less verbose
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"

@@ -2,13 +2,12 @@
 # pylint: disable=no-self-use, protected-access
 import unittest
 
-from hamcrest import assert_that, contains_string, equal_to, is_
-
 from flwr_baselines.publications.leaf.femnist.dataset.dataset_test import recreate_nist
 from flwr_baselines.publications.leaf.femnist.dataset.nist_preprocessor import (
     NISTPreprocessor,
 )
 from flwr_baselines.publications.leaf.femnist.dataset.nist_sampler import NistSampler
+from hamcrest import assert_that, contains_string, equal_to, is_
 
 
 class TestNistSampler(unittest.TestCase):

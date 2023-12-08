@@ -19,9 +19,9 @@ import unittest
 from typing import Dict, Tuple
 
 import pytest
+from flwr_datasets.resplitter.merge_resplitter import MergeResplitter
 
 from datasets import Dataset, DatasetDict
-from flwr_datasets.resplitter.merge_resplitter import MergeResplitter
 
 
 class TestResplitter(unittest.TestCase):

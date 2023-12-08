@@ -2,12 +2,11 @@
 # pylint: disable=no-self-use
 import unittest
 
-from hamcrest import assert_that, equal_to
-
 from flwr_baselines.publications.leaf.femnist.dataset.dataset_test import recreate_nist
 from flwr_baselines.publications.leaf.femnist.dataset.nist_preprocessor import (
     NISTPreprocessor,
 )
+from hamcrest import assert_that, equal_to
 
 
 class NistPreprocessorTest(unittest.TestCase):

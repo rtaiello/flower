@@ -7,6 +7,7 @@ from typing import Dict, Optional, Union
 
 import matplotlib.pyplot as plt
 import numpy as np
+
 from flwr.server.history import History
 
 

@@ -8,6 +8,9 @@ from logging import WARNING
 from typing import Dict, List, Optional, Tuple, Union
 
 import torch
+from fedmeta.models import FemnistNetwork, StackedLSTM
+from fedmeta.utils import update_ema
+
 from flwr.common import (
     EvaluateIns,
     EvaluateRes,
@@ -25,9 +28,6 @@ from flwr.server.client_manager import ClientManager
 from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy import FedAvg
 from flwr.server.strategy.aggregate import aggregate, weighted_loss_avg
-
-from fedmeta.models import FemnistNetwork, StackedLSTM
-from fedmeta.utils import update_ema
 
 
 # pylint: disable=too-many-arguments

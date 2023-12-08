@@ -1,8 +1,10 @@
-import flwr as fl
+from collections import OrderedDict
+
 import mnist
 import pytorch_lightning as pl
-from collections import OrderedDict
 import torch
+
+import flwr as fl
 
 
 class FlowerClient(fl.client.NumPyClient):

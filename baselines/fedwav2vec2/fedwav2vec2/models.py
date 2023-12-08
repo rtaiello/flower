@@ -12,12 +12,12 @@ import os
 
 import speechbrain as sb
 import torch
-from flwr.common import ndarrays_to_parameters
+from fedwav2vec2.dataset import dataio_prepare
+from fedwav2vec2.sb_recipe import ASR, get_weights
 from hyperpyyaml import load_hyperpyyaml
 from omegaconf import DictConfig
 
-from fedwav2vec2.dataset import dataio_prepare
-from fedwav2vec2.sb_recipe import ASR, get_weights
+from flwr.common import ndarrays_to_parameters
 
 
 def int_model(  # pylint: disable=too-many-arguments,too-many-locals

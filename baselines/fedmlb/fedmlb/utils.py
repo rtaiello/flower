@@ -8,6 +8,7 @@ from secrets import token_hex
 from typing import Dict, Union
 
 import psutil
+
 from flwr.server.history import History
 
 

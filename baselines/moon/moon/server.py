@@ -8,11 +8,11 @@ from collections import OrderedDict
 from typing import Callable, Dict, Optional, Tuple
 
 import torch
-from flwr.common.typing import NDArrays, Scalar
+from moon.models import init_net, test
 from omegaconf import DictConfig
 from torch.utils.data import DataLoader
 
-from moon.models import init_net, test
+from flwr.common.typing import NDArrays, Scalar
 
 
 def gen_evaluate_fn(

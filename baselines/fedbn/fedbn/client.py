@@ -5,14 +5,14 @@ from collections import OrderedDict
 from pathlib import Path
 from typing import Callable, Dict, List, Tuple
 
-import flwr as fl
 import torch
-from flwr.common.typing import NDArrays, Scalar
+from fedbn.models import CNNModel, test, train
 from hydra.utils import instantiate
 from omegaconf import DictConfig
 from torch.utils.data import DataLoader
 
-from fedbn.models import CNNModel, test, train
+import flwr as fl
+from flwr.common.typing import NDArrays, Scalar
 
 
 class FlowerClient(fl.client.NumPyClient):

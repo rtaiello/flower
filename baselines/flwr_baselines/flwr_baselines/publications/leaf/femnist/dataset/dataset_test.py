@@ -6,10 +6,6 @@ from pathlib import Path
 
 import numpy as np
 import PIL
-from hamcrest import assert_that, equal_to, is_
-from PIL import Image
-from sklearn import preprocessing
-
 from flwr_baselines.publications.leaf.femnist.dataset.dataset import (
     create_dataset,
     create_partition_list,
@@ -20,6 +16,9 @@ from flwr_baselines.publications.leaf.femnist.dataset.nist_preprocessor import (
     NISTPreprocessor,
 )
 from flwr_baselines.publications.leaf.femnist.dataset.nist_sampler import NistSampler
+from hamcrest import assert_that, equal_to, is_
+from PIL import Image
+from sklearn import preprocessing
 
 
 class TestDataset(unittest.TestCase):

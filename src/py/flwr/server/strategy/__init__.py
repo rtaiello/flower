@@ -31,10 +31,10 @@ from .fedtrimmedavg import FedTrimmedAvg as FedTrimmedAvg
 from .fedxgb_bagging import FedXgbBagging as FedXgbBagging
 from .fedxgb_nn_avg import FedXgbNnAvg as FedXgbNnAvg
 from .fedyogi import FedYogi as FedYogi
+from .flamingo_fedavg import FlamingoFedAvg as FlamingoFedAvg
 from .krum import Krum as Krum
 from .qfedavg import QFedAvg as QFedAvg
 from .strategy import Strategy as Strategy
-from .flamingo_fedavg import FlamingoFedAvg as FlamingoFedAvg
 
 __all__ = [
     "FaultTolerantFedAvg",

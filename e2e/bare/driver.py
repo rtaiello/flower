@@ -1,6 +1,5 @@
 import flwr as fl
 
-
 # Start Flower server
 hist = fl.driver.start_driver(
     server_address="0.0.0.0:9091",

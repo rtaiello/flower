@@ -4,6 +4,12 @@ from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Tuple, Type, Union
 
 import torch
+from fedper.constants import Algorithms
+from fedper.implemented_models.mobile_model import MobileNetModelSplit
+from fedper.implemented_models.resnet_model import ResNetModelSplit
+from fedper.models import ModelSplit
+from torch import nn as nn
+
 from flwr.common import (
     EvaluateIns,
     EvaluateRes,
@@ -18,12 +24,6 @@ from flwr.common import (
 from flwr.server.client_manager import ClientManager
 from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy.fedavg import FedAvg
-from torch import nn as nn
-
-from fedper.constants import Algorithms
-from fedper.implemented_models.mobile_model import MobileNetModelSplit
-from fedper.implemented_models.resnet_model import ResNetModelSplit
-from fedper.models import ModelSplit
 
 
 class ServerInitializationStrategy(FedAvg):

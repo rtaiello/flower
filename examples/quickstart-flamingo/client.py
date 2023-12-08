@@ -2,7 +2,6 @@ import argparse
 import warnings
 from collections import OrderedDict
 
-import numpy as np
 import torch
 from flamingo import Flamingo
 from flwr_datasets import FederatedDataset
@@ -10,7 +9,8 @@ from torch.nn.utils import parameters_to_vector, vector_to_parameters
 from torch.utils.data import DataLoader
 from torchvision.transforms import Compose, Normalize, ToTensor
 from tqdm import tqdm
-from utils import Net, multiply, quantize
+from model import Net
+from flwr.common.secure_aggregation.quantization import quantize, multiply
 
 import flwr as fl
 from flwr.client.secure_aggregation import SecAggPlusHandler
@@ -80,7 +80,7 @@ def load_data(node_id):
 parser = argparse.ArgumentParser(description="Flower")
 parser.add_argument(
     "--node-id",
-    choices=[0, 1, 2],
+    choices=[0, 1],
     type=int,
     help="Partition of the dataset divided into 3 iid partitions created artificially.",
 )
@@ -93,7 +93,7 @@ num_params = torch.tensor([p.numel() for p in net.parameters()]).sum()
 trainloader, testloader = load_data(node_id=my_node_id)
 
 
-# Define Flower client
+# Define Flamingo client
 class FlamingoClient(fl.client.NumPyClient):
     def __init__(self) -> None:
         super().__init__()

@@ -5,15 +5,15 @@ import pickle
 from collections import OrderedDict
 from typing import Callable, Dict, List, Tuple
 
-import flwr as fl
 import numpy as np
 import torch
-from flwr.common.typing import NDArrays, Scalar
+from depthfl.models import test, train
 from hydra.utils import instantiate
 from omegaconf import DictConfig
 from torch.utils.data import DataLoader
 
-from depthfl.models import test, train
+import flwr as fl
+from flwr.common.typing import NDArrays, Scalar
 
 
 def prune(state_dict, param_idx):

@@ -8,13 +8,13 @@ import gc
 import os
 from typing import Callable, Dict
 
-import flwr as fl
 import torch
-from flwr.common import Scalar
-from omegaconf import DictConfig
-
 from fedwav2vec2.client import SpeechBrainClient
 from fedwav2vec2.models import int_model
+from omegaconf import DictConfig
+
+import flwr as fl
+from flwr.common import Scalar
 
 
 def get_on_fit_config_fn(local_epochs: int) -> Callable[[int], Dict[str, str]]:

@@ -8,8 +8,9 @@ extend or modify the functionality of an existing strategy.
 import gc
 from typing import Dict, List, Optional, Tuple, Union
 
-import flwr as fl
 import torch
+
+import flwr as fl
 from flwr.common import (
     FitRes,
     Parameters,

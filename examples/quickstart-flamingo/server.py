@@ -1,7 +1,7 @@
 from typing import List, Tuple
 
 import torch
-from utils import Net
+from model import Net
 
 import flwr as fl
 from flwr.common import Metrics, ndarrays_to_parameters

@@ -3,9 +3,9 @@ from collections import OrderedDict
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from opacus import PrivacyEngine
 
 import flwr as fl
-from opacus import PrivacyEngine
 
 # Adapted from the PyTorch quickstart example.
 

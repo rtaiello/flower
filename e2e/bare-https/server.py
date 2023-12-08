@@ -1,6 +1,6 @@
-import flwr as fl
 from pathlib import Path
 
+import flwr as fl
 
 hist = fl.server.start_server(
     server_address="127.0.0.1:8080",
@@ -9,7 +9,10 @@ hist = fl.server.start_server(
         Path("certificates/ca.crt").read_bytes(),
         Path("certificates/server.pem").read_bytes(),
         Path("certificates/server.key").read_bytes(),
-    )
+    ),
 )
 
-assert hist.losses_distributed[-1][1] == 0 or (hist.losses_distributed[0][1] / hist.losses_distributed[-1][1]) >= 0.98
+assert (
+    hist.losses_distributed[-1][1] == 0
+    or (hist.losses_distributed[0][1] / hist.losses_distributed[-1][1]) >= 0.98
+)

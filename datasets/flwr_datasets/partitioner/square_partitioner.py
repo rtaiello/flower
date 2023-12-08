@@ -16,7 +16,6 @@
 
 
 import numpy as np
-
 from flwr_datasets.partitioner.size_partitioner import SizePartitioner
 
 

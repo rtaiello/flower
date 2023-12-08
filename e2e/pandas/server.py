@@ -1,6 +1,6 @@
-import flwr as fl
-
 from strategy import FedAnalytics
+
+import flwr as fl
 
 hist = fl.server.start_server(
     server_address="0.0.0.0:8080",

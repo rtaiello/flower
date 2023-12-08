@@ -15,155 +15,200 @@ class DriverStub(object):
             channel: A grpc.Channel.
         """
         self.CreateWorkload = channel.unary_unary(
-                '/flwr.proto.Driver/CreateWorkload',
-                request_serializer=flwr_dot_proto_dot_driver__pb2.CreateWorkloadRequest.SerializeToString,
-                response_deserializer=flwr_dot_proto_dot_driver__pb2.CreateWorkloadResponse.FromString,
-                )
+            "/flwr.proto.Driver/CreateWorkload",
+            request_serializer=flwr_dot_proto_dot_driver__pb2.CreateWorkloadRequest.SerializeToString,
+            response_deserializer=flwr_dot_proto_dot_driver__pb2.CreateWorkloadResponse.FromString,
+        )
         self.GetNodes = channel.unary_unary(
-                '/flwr.proto.Driver/GetNodes',
-                request_serializer=flwr_dot_proto_dot_driver__pb2.GetNodesRequest.SerializeToString,
-                response_deserializer=flwr_dot_proto_dot_driver__pb2.GetNodesResponse.FromString,
-                )
+            "/flwr.proto.Driver/GetNodes",
+            request_serializer=flwr_dot_proto_dot_driver__pb2.GetNodesRequest.SerializeToString,
+            response_deserializer=flwr_dot_proto_dot_driver__pb2.GetNodesResponse.FromString,
+        )
         self.PushTaskIns = channel.unary_unary(
-                '/flwr.proto.Driver/PushTaskIns',
-                request_serializer=flwr_dot_proto_dot_driver__pb2.PushTaskInsRequest.SerializeToString,
-                response_deserializer=flwr_dot_proto_dot_driver__pb2.PushTaskInsResponse.FromString,
-                )
+            "/flwr.proto.Driver/PushTaskIns",
+            request_serializer=flwr_dot_proto_dot_driver__pb2.PushTaskInsRequest.SerializeToString,
+            response_deserializer=flwr_dot_proto_dot_driver__pb2.PushTaskInsResponse.FromString,
+        )
         self.PullTaskRes = channel.unary_unary(
-                '/flwr.proto.Driver/PullTaskRes',
-                request_serializer=flwr_dot_proto_dot_driver__pb2.PullTaskResRequest.SerializeToString,
-                response_deserializer=flwr_dot_proto_dot_driver__pb2.PullTaskResResponse.FromString,
-                )
+            "/flwr.proto.Driver/PullTaskRes",
+            request_serializer=flwr_dot_proto_dot_driver__pb2.PullTaskResRequest.SerializeToString,
+            response_deserializer=flwr_dot_proto_dot_driver__pb2.PullTaskResResponse.FromString,
+        )
 
 
 class DriverServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def CreateWorkload(self, request, context):
-        """Request workload_id
-        """
+        """Request workload_id"""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
     def GetNodes(self, request, context):
-        """Return a set of nodes
-        """
+        """Return a set of nodes"""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
     def PushTaskIns(self, request, context):
-        """Create one or more tasks
-        """
+        """Create one or more tasks"""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
     def PullTaskRes(self, request, context):
-        """Get task results
-        """
+        """Get task results"""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
 
 def add_DriverServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'CreateWorkload': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateWorkload,
-                    request_deserializer=flwr_dot_proto_dot_driver__pb2.CreateWorkloadRequest.FromString,
-                    response_serializer=flwr_dot_proto_dot_driver__pb2.CreateWorkloadResponse.SerializeToString,
-            ),
-            'GetNodes': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetNodes,
-                    request_deserializer=flwr_dot_proto_dot_driver__pb2.GetNodesRequest.FromString,
-                    response_serializer=flwr_dot_proto_dot_driver__pb2.GetNodesResponse.SerializeToString,
-            ),
-            'PushTaskIns': grpc.unary_unary_rpc_method_handler(
-                    servicer.PushTaskIns,
-                    request_deserializer=flwr_dot_proto_dot_driver__pb2.PushTaskInsRequest.FromString,
-                    response_serializer=flwr_dot_proto_dot_driver__pb2.PushTaskInsResponse.SerializeToString,
-            ),
-            'PullTaskRes': grpc.unary_unary_rpc_method_handler(
-                    servicer.PullTaskRes,
-                    request_deserializer=flwr_dot_proto_dot_driver__pb2.PullTaskResRequest.FromString,
-                    response_serializer=flwr_dot_proto_dot_driver__pb2.PullTaskResResponse.SerializeToString,
-            ),
+        "CreateWorkload": grpc.unary_unary_rpc_method_handler(
+            servicer.CreateWorkload,
+            request_deserializer=flwr_dot_proto_dot_driver__pb2.CreateWorkloadRequest.FromString,
+            response_serializer=flwr_dot_proto_dot_driver__pb2.CreateWorkloadResponse.SerializeToString,
+        ),
+        "GetNodes": grpc.unary_unary_rpc_method_handler(
+            servicer.GetNodes,
+            request_deserializer=flwr_dot_proto_dot_driver__pb2.GetNodesRequest.FromString,
+            response_serializer=flwr_dot_proto_dot_driver__pb2.GetNodesResponse.SerializeToString,
+        ),
+        "PushTaskIns": grpc.unary_unary_rpc_method_handler(
+            servicer.PushTaskIns,
+            request_deserializer=flwr_dot_proto_dot_driver__pb2.PushTaskInsRequest.FromString,
+            response_serializer=flwr_dot_proto_dot_driver__pb2.PushTaskInsResponse.SerializeToString,
+        ),
+        "PullTaskRes": grpc.unary_unary_rpc_method_handler(
+            servicer.PullTaskRes,
+            request_deserializer=flwr_dot_proto_dot_driver__pb2.PullTaskResRequest.FromString,
+            response_serializer=flwr_dot_proto_dot_driver__pb2.PullTaskResResponse.SerializeToString,
+        ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'flwr.proto.Driver', rpc_method_handlers)
+        "flwr.proto.Driver", rpc_method_handlers
+    )
     server.add_generic_rpc_handlers((generic_handler,))
 
 
- # This class is part of an EXPERIMENTAL API.
+# This class is part of an EXPERIMENTAL API.
 class Driver(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def CreateWorkload(request,
+    def CreateWorkload(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/flwr.proto.Driver/CreateWorkload',
+            "/flwr.proto.Driver/CreateWorkload",
             flwr_dot_proto_dot_driver__pb2.CreateWorkloadRequest.SerializeToString,
             flwr_dot_proto_dot_driver__pb2.CreateWorkloadResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
 
     @staticmethod
-    def GetNodes(request,
+    def GetNodes(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/flwr.proto.Driver/GetNodes',
+            "/flwr.proto.Driver/GetNodes",
             flwr_dot_proto_dot_driver__pb2.GetNodesRequest.SerializeToString,
             flwr_dot_proto_dot_driver__pb2.GetNodesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
 
     @staticmethod
-    def PushTaskIns(request,
+    def PushTaskIns(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/flwr.proto.Driver/PushTaskIns',
+            "/flwr.proto.Driver/PushTaskIns",
             flwr_dot_proto_dot_driver__pb2.PushTaskInsRequest.SerializeToString,
             flwr_dot_proto_dot_driver__pb2.PushTaskInsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
 
     @staticmethod
-    def PullTaskRes(request,
+    def PullTaskRes(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/flwr.proto.Driver/PullTaskRes',
+            "/flwr.proto.Driver/PullTaskRes",
             flwr_dot_proto_dot_driver__pb2.PullTaskResRequest.SerializeToString,
             flwr_dot_proto_dot_driver__pb2.PullTaskResResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )

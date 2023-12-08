@@ -4,10 +4,9 @@
 from typing import Optional, Tuple
 
 import torch
+from fedprox.dataset_preparation import _partition_data
 from omegaconf import DictConfig
 from torch.utils.data import DataLoader, random_split
-
-from fedprox.dataset_preparation import _partition_data
 
 
 def load_datasets(  # pylint: disable=too-many-arguments

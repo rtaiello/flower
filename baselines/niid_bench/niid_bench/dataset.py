@@ -3,14 +3,13 @@
 from typing import List, Optional, Tuple
 
 import torch
-from omegaconf import DictConfig
-from torch.utils.data import DataLoader, random_split
-
 from niid_bench.dataset_preparation import (
     partition_data,
     partition_data_dirichlet,
     partition_data_label_quantity,
 )
+from omegaconf import DictConfig
+from torch.utils.data import DataLoader, random_split
 
 
 # pylint: disable=too-many-locals, too-many-branches

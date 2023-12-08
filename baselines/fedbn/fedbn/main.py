@@ -7,15 +7,15 @@ model is going to be evaluated, etc. At the end, this script saves the results.
 import pickle
 from pathlib import Path
 
-import flwr as fl
 import hydra
+from fedbn.client import gen_client_fn
+from fedbn.dataset import get_data
+from fedbn.utils import quick_plot
 from hydra.core.hydra_config import HydraConfig
 from hydra.utils import instantiate
 from omegaconf import DictConfig, OmegaConf
 
-from fedbn.client import gen_client_fn
-from fedbn.dataset import get_data
-from fedbn.utils import quick_plot
+import flwr as fl
 
 
 @hydra.main(config_path="conf", config_name="base", version_base=None)

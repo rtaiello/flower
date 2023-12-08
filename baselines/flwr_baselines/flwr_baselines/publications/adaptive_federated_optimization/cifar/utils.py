@@ -9,9 +9,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import numpy.typing as npt
 import torch
-from flwr.common.parameter import ndarrays_to_parameters
-from flwr.common.typing import NDArrays, Parameters, Scalar
-from flwr.server.history import History
+from flwr_baselines.dataset.utils.common import (
+    XY,
+    create_lda_partitions,
+    shuffle,
+    sort_by_label,
+    split_array_at_indices,
+)
 from PIL import Image
 from torch import Tensor, load
 from torch.nn import GroupNorm, Module
@@ -27,13 +31,9 @@ from torchvision.transforms import (
     ToTensor,
 )
 
-from flwr_baselines.dataset.utils.common import (
-    XY,
-    create_lda_partitions,
-    shuffle,
-    sort_by_label,
-    split_array_at_indices,
-)
+from flwr.common.parameter import ndarrays_to_parameters
+from flwr.common.typing import NDArrays, Parameters, Scalar
+from flwr.server.history import History
 
 CIFAR100_NUM_COARSE_CLASSES = 20
 CIFAR100_NUM_FINE_CLASSES = 5

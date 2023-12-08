@@ -4,12 +4,13 @@
 from os import chdir
 from pathlib import Path
 
-import flwr as fl
 import hydra
-from flwr.common.typing import Parameters
-from flwr.server import ServerConfig
 from hydra.utils import call, get_original_cwd, instantiate, to_absolute_path
 from omegaconf import DictConfig
+
+import flwr as fl
+from flwr.common.typing import Parameters
+from flwr.server import ServerConfig
 
 
 @hydra.main(config_path="conf/cifar10", config_name="config", version_base=None)

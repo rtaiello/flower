@@ -8,12 +8,12 @@ from typing import Callable, Dict, List, Optional, Tuple
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
+from flwr_baselines.publications.fedavg_mnist import model
+from torch.utils.data import DataLoader
+
 from flwr.common import Metrics
 from flwr.common.typing import NDArrays, Scalar
 from flwr.server.history import History
-from torch.utils.data import DataLoader
-
-from flwr_baselines.publications.fedavg_mnist import model
 
 
 def plot_metric_from_history(

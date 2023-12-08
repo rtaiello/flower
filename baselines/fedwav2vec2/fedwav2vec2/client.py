@@ -9,9 +9,13 @@ import gc
 import logging
 from math import exp
 
-import flwr as fl
 import speechbrain as sb
 import torch
+from fedwav2vec2.models import int_model
+from fedwav2vec2.sb_recipe import get_weights, set_weights
+from omegaconf import DictConfig
+
+import flwr as fl
 from flwr.common import (
     Code,
     EvaluateIns,
@@ -25,10 +29,6 @@ from flwr.common import (
     ndarrays_to_parameters,
     parameters_to_ndarrays,
 )
-from omegaconf import DictConfig
-
-from fedwav2vec2.models import int_model
-from fedwav2vec2.sb_recipe import get_weights, set_weights
 
 
 class SpeechBrainClient(fl.client.Client):

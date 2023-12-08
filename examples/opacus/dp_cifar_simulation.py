@@ -2,15 +2,15 @@ import math
 from collections import OrderedDict
 from typing import Callable, Optional, Tuple
 
-import flwr as fl
 import numpy as np
 import torch
 import torchvision.transforms as transforms
+from dp_cifar_main import DEVICE, PARAMS, DPCifarClient, Net, test
 from opacus.dp_model_inspector import DPModelInspector
 from torch.utils.data import DataLoader
 from torchvision.datasets import CIFAR10
 
-from dp_cifar_main import DEVICE, PARAMS, DPCifarClient, Net, test
+import flwr as fl
 
 # Adapted from the PyTorch quickstart and ray simulation (quickstart and extended) examples.
 

@@ -18,9 +18,9 @@
 from typing import Callable, Dict, List, Union
 
 import numpy as np
+from flwr_datasets.partitioner.partitioner import Partitioner
 
 import datasets
-from flwr_datasets.partitioner.partitioner import Partitioner
 
 
 class SizePartitioner(Partitioner):

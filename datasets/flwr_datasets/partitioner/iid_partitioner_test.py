@@ -18,10 +18,10 @@
 import unittest
 from typing import Tuple
 
+from flwr_datasets.partitioner.iid_partitioner import IidPartitioner
 from parameterized import parameterized
 
 from datasets import Dataset
-from flwr_datasets.partitioner.iid_partitioner import IidPartitioner
 
 
 def _dummy_setup(num_partitions: int, num_rows: int) -> Tuple[Dataset, IidPartitioner]:

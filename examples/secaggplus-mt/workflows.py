@@ -58,7 +58,6 @@ from flwr.common.serde import named_values_from_proto, named_values_to_proto
 from flwr.common.typing import Value
 from flwr.proto.task_pb2 import SecureAggregation, Task
 
-
 LOG_EXPLAIN = True
 
 

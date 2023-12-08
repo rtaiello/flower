@@ -5,6 +5,7 @@ from typing import Dict, List, Tuple
 
 import numpy as np
 import torch
+
 from flwr.common import Metrics, Scalar
 
 

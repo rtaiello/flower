@@ -10,57 +10,61 @@ class DriverStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     CreateWorkload: grpc.UnaryUnaryMultiCallable[
         flwr.proto.driver_pb2.CreateWorkloadRequest,
-        flwr.proto.driver_pb2.CreateWorkloadResponse]
+        flwr.proto.driver_pb2.CreateWorkloadResponse,
+    ]
     """Request workload_id"""
 
     GetNodes: grpc.UnaryUnaryMultiCallable[
-        flwr.proto.driver_pb2.GetNodesRequest,
-        flwr.proto.driver_pb2.GetNodesResponse]
+        flwr.proto.driver_pb2.GetNodesRequest, flwr.proto.driver_pb2.GetNodesResponse
+    ]
     """Return a set of nodes"""
 
     PushTaskIns: grpc.UnaryUnaryMultiCallable[
         flwr.proto.driver_pb2.PushTaskInsRequest,
-        flwr.proto.driver_pb2.PushTaskInsResponse]
+        flwr.proto.driver_pb2.PushTaskInsResponse,
+    ]
     """Create one or more tasks"""
 
     PullTaskRes: grpc.UnaryUnaryMultiCallable[
         flwr.proto.driver_pb2.PullTaskResRequest,
-        flwr.proto.driver_pb2.PullTaskResResponse]
+        flwr.proto.driver_pb2.PullTaskResResponse,
+    ]
     """Get task results"""
-
 
 class DriverServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def CreateWorkload(self,
+    def CreateWorkload(
+        self,
         request: flwr.proto.driver_pb2.CreateWorkloadRequest,
         context: grpc.ServicerContext,
     ) -> flwr.proto.driver_pb2.CreateWorkloadResponse:
         """Request workload_id"""
         pass
-
     @abc.abstractmethod
-    def GetNodes(self,
+    def GetNodes(
+        self,
         request: flwr.proto.driver_pb2.GetNodesRequest,
         context: grpc.ServicerContext,
     ) -> flwr.proto.driver_pb2.GetNodesResponse:
         """Return a set of nodes"""
         pass
-
     @abc.abstractmethod
-    def PushTaskIns(self,
+    def PushTaskIns(
+        self,
         request: flwr.proto.driver_pb2.PushTaskInsRequest,
         context: grpc.ServicerContext,
     ) -> flwr.proto.driver_pb2.PushTaskInsResponse:
         """Create one or more tasks"""
         pass
-
     @abc.abstractmethod
-    def PullTaskRes(self,
+    def PullTaskRes(
+        self,
         request: flwr.proto.driver_pb2.PullTaskResRequest,
         context: grpc.ServicerContext,
     ) -> flwr.proto.driver_pb2.PullTaskResResponse:
         """Get task results"""
         pass
 
-
-def add_DriverServicer_to_server(servicer: DriverServicer, server: grpc.Server) -> None: ...
+def add_DriverServicer_to_server(
+    servicer: DriverServicer, server: grpc.Server
+) -> None: ...

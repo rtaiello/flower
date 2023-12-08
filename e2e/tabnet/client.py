@@ -1,8 +1,10 @@
 import os
-import flwr as fl
+
+import tabnet
 import tensorflow as tf
 import tensorflow_datasets as tfds
-import tabnet
+
+import flwr as fl
 
 train_size = 125
 BATCH_SIZE = 50
@@ -80,6 +82,7 @@ class FlowerClient(fl.client.NumPyClient):
 
 def client_fn(cid):
     return FlowerClient().to_client()
+
 
 flower = fl.flower.Flower(
     client_fn=client_fn,

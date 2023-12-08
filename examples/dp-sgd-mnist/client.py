@@ -1,15 +1,13 @@
 import argparse
 import os
 
+import common
 import tensorflow as tf
 from tensorflow_privacy.privacy.optimizers.dp_optimizer_keras_vectorized import (
     VectorizedDPKerasSGDOptimizer,
 )
 
 import flwr as fl
-
-import common
-
 
 # Make TensorFlow logs less verbose
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"

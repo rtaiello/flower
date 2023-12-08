@@ -5,17 +5,17 @@ model is going to be evaluated, etc. At the end, this script saves the results.
 """
 
 
-import flwr as fl
-import hydra
-from hydra.core.hydra_config import HydraConfig
-from hydra.utils import instantiate
-from omegaconf import DictConfig, OmegaConf
-
 import fedmeta.client as client
+import hydra
 from fedmeta.dataset import load_datasets
 from fedmeta.fedmeta_client_manager import FedmetaClientManager
 from fedmeta.strategy import weighted_average
 from fedmeta.utils import plot_from_pkl, save_graph_params
+from hydra.core.hydra_config import HydraConfig
+from hydra.utils import instantiate
+from omegaconf import DictConfig, OmegaConf
+
+import flwr as fl
 
 
 @hydra.main(config_path="conf", config_name="config", version_base=None)

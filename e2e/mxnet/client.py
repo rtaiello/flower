@@ -6,14 +6,14 @@ https://mxnet.apache.org/api/python/docs/tutorials/packages/gluon/image/mnist.ht
 """
 
 
-import flwr as fl
-import numpy as np
 import mxnet as mx
-from mxnet import nd
-from mxnet import gluon
-from mxnet.gluon import nn
-from mxnet import autograd as ag
 import mxnet.ndarray as F
+import numpy as np
+from mxnet import autograd as ag
+from mxnet import gluon, nd
+from mxnet.gluon import nn
+
+import flwr as fl
 
 SUBSET_SIZE = 50
 
@@ -23,6 +23,7 @@ mx.random.seed(42)
 # Setup context to GPU or CPU
 DEVICE = [mx.gpu() if mx.test_utils.list_gpus() else mx.cpu()]
 
+
 def model():
     net = nn.Sequential()
     net.add(nn.Dense(256, activation="relu"))
@@ -31,14 +32,20 @@ def model():
     net.collect_params().initialize()
     return net
 
+
 def load_data():
     print("Download Dataset")
     mnist = mx.test_utils.get_mnist()
     batch_size = 100
     train_data = mx.io.NDArrayIter(
-            mnist["train_data"][:SUBSET_SIZE], mnist["train_label"][:SUBSET_SIZE], batch_size, shuffle=True
+        mnist["train_data"][:SUBSET_SIZE],
+        mnist["train_label"][:SUBSET_SIZE],
+        batch_size,
+        shuffle=True,
     )
-    val_data = mx.io.NDArrayIter(mnist["test_data"][:10], mnist["test_label"][:10], batch_size)
+    val_data = mx.io.NDArrayIter(
+        mnist["test_data"][:10], mnist["test_label"][:10], batch_size
+    )
     return train_data, val_data
 
 
@@ -96,11 +103,13 @@ def test(net, val_data):
     metrics.update(label, outputs)
     return metrics.get_name_value(), num_examples
 
+
 train_data, val_data = load_data()
 
 model = model()
 init = nd.random.uniform(shape=(2, 784))
 model(init)
+
 
 # Flower Client
 class FlowerClient(fl.client.NumPyClient):
@@ -131,6 +140,7 @@ class FlowerClient(fl.client.NumPyClient):
 
 def client_fn(cid):
     return FlowerClient().to_client()
+
 
 flower = fl.flower.Flower(
     client_fn=client_fn,

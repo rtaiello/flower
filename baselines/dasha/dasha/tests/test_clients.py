@@ -7,7 +7,6 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.utils.data as data_utils
-
 from dasha.client import DashaClient
 from dasha.compressors import decompress
 from dasha.models import ClassificationModel

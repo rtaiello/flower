@@ -1,24 +1,24 @@
-from typing import List, Tuple
 import random
 import time
+from typing import List, Tuple
 
-from flwr.driver import GrpcDriver
-from flwr.common import (
-    ServerMessage,
-    FitIns,
-    ndarrays_to_parameters,
-    serde,
-    parameters_to_ndarrays,
-    ClientMessage,
-    NDArrays,
-    Code,
-)
-from flwr.proto import driver_pb2, task_pb2, node_pb2, transport_pb2
-from flwr.server.strategy.aggregate import aggregate
-from flwr.common import Metrics
-from flwr.server import History
-from flwr.common import serde
 from task import Net, get_parameters, set_parameters
+
+from flwr.common import (
+    ClientMessage,
+    Code,
+    FitIns,
+    Metrics,
+    NDArrays,
+    ServerMessage,
+    ndarrays_to_parameters,
+    parameters_to_ndarrays,
+    serde,
+)
+from flwr.driver import GrpcDriver
+from flwr.proto import driver_pb2, node_pb2, task_pb2, transport_pb2
+from flwr.server import History
+from flwr.server.strategy.aggregate import aggregate
 
 
 # Define metric aggregation function

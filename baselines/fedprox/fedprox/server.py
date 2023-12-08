@@ -5,12 +5,12 @@ from collections import OrderedDict
 from typing import Callable, Dict, Optional, Tuple
 
 import torch
-from flwr.common.typing import NDArrays, Scalar
+from fedprox.models import test
 from hydra.utils import instantiate
 from omegaconf import DictConfig
 from torch.utils.data import DataLoader
 
-from fedprox.models import test
+from flwr.common.typing import NDArrays, Scalar
 
 
 def gen_evaluate_fn(
