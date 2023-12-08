@@ -22,6 +22,8 @@ import numpy as np
 
 from flwr.common import NDArray, NDArrays
 
+def secure_aggregate(results: List[Tuple[NDArrays, int]]) -> NDArrays:
+    pass
 
 def aggregate(results: List[Tuple[NDArrays, int]]) -> NDArrays:
     """Compute weighted average."""
